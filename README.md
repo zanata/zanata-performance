@@ -11,8 +11,10 @@ Performance testing objects and scripts for Zanata
 
 ## Scripts
 * verify_performance.groovy : Groovy script to collect and verify the 90% line falls below the acceptable value
+* MemoryTest.groovy : Basic Virtual Memory usage monitor test tool
 
 ## Usage
+### Jmeter
 Assuming Current Working Directory is this repo
 
 ```
@@ -21,3 +23,15 @@ java -jar /pathToJMeter/lib/ext/CMDRunner.jar --tool Reporter --generate-csv "Ag
 groovy verify_performance.groovy
 
 ```
+
+### MemoryTest
+```
+memory_test.py [-h -v -i <interval> -p <processid> -c <count> -t <threshold> -s <startingMemory>]
+```
+h:Help
+v:Verbose
+i:Interval between samples (seconds)
+p:Process id if already known
+c:Count of samples to take
+t:Threshold of memory increase before failure (double, as a multiplier)
+_s:Start memory value, for test purposes_
