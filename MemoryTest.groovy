@@ -27,15 +27,15 @@ void infoOut(message) {
 
 void parseOpts(args) {
     infoOut "Parsing options"
-    def cli = new CliBuilder(usage:'memory_test.py [-h -v -i <interval> -p <processid> -c <count> -t <threshold>]')
+    def cli = new CliBuilder(usage:'groovy MemoryTest.groovy [-h -v -i <interval> -p <processId> -c <count> -t <threshold>]')
     cli.with {
         h longOpt: 'help', 'Show usage'
         v longOpt: 'verbose', 'Verbose mode'
         i longOpt: 'interval', args:1, argName:'interval', "Delay between samples (seconds) [600]"
         c longOpt: 'count', args:1, argName:'count', "Number of samples to record [5]"
-        p longOpt: 'processid', args:1, argName:'process', "ID of Zanata server process, eg. 123456"
+        p longOpt: 'processId', args:1, argName:'process', "ID of Zanata server process, eg. 123456"
         t longOpt: 'threshold', args:1, argName:'thresholdMultiplier', "Max memory increase (multiplied) before failure [1.1]"
-        s longOpt: 'startmem', args:1, argName:'startmem', "Starting memory (for script testing)"
+        s longOpt: 'startMem', args:1, argName:'startmem', "Starting memory (for script testing)"
     }
     def options = cli.parse args
     if (!options) {
@@ -68,7 +68,7 @@ void parseOpts(args) {
 /*
  * Exit with failure
  */
-void gameOver(message) {
+void exitWithError(message) {
     debugOut "Exiting for"
     infoOut message
     System.exit 1
@@ -86,10 +86,10 @@ void verifyProcess(pid) {
         excode = command.execute().waitFor()
         debugOut "Kill process check code $excode"
         if (excode != 0) {
-            gameOver "Unable to verify running process $pid"
+            exitWithError "Unable to verify running process $pid"
         }
     } catch (IllegalThreadStateException e) {
-        gameOver "Error attempting to verify running process $pid : $e"
+        exitWithError "Error attempting to verify running process $pid : $e"
     }
 }
 
@@ -106,7 +106,7 @@ Integer getPid(processName) {
         pid = command.execute().text
         debugOut "pgrep: $pid"
         if (pid.isEmpty()) {
-            gameOver "Error: Could not find running process with name $processName"
+            exitWithError "Error: Could not find running process with name $processName"
         }
     }
     verifyProcess pid
@@ -144,7 +144,7 @@ void finishTest(String message, boolean passed, Date endtime, int endmemory) {
     infoOut "Start Memory: $startingMemory"
     infoOut "End Memory: $endmemory"
     if (!passed) {
-        gameOver message
+        exitWithError message
     } else {
         infoOut "[PASS] $message"
     }
@@ -168,7 +168,7 @@ void test() {
     // Validate process
     String pid = getPid 'org.jboss.as.standalone'
     if (pid == null || pid.isEmpty()) {
-        gameOver  "Process not found, run Zanata server first!"
+        exitWithError  "Process not found, run Zanata server first!"
     }
 
     // Get starting memory and prepare test

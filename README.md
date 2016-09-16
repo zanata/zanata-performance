@@ -26,7 +26,7 @@ groovy verify_performance.groovy
 
 ### MemoryTest
 ```
-memory_test.py [-h -v -i <interval> -p <processid> -c <count> -t <threshold> -s <startingMemory>]
+groovy MemoryTest.groovy [-h -v -i <interval> -p <processId> -c <count> -t <threshold> -s <startMem]
 ```
 h:Help
 v:Verbose
