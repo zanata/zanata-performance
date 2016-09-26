@@ -28,10 +28,10 @@ groovy verify_performance.groovy
 ```
 groovy MemoryTest.groovy [-h -v -i <interval> -p <processId> -c <count> -t <threshold> -s <startMem]
 ```
-h:Help
-v:Verbose
-i:Interval between samples (seconds)
-p:Process id if already known
-c:Count of samples to take
-t:Threshold of memory increase before failure (double, as a multiplier)
-_s:Start memory value, for test purposes_
+* h: Help
+* v: Verbose
+* i: Interval between samples (seconds)
+* p: Process id if already known
+* c: Count of samples to take
+* t: Threshold of memory increase before failure (double, as a multiplier)
+* _s: Start memory value, for test purposes_
