@@ -23,6 +23,14 @@ java -jar /pathToJMeter/lib/ext/CMDRunner.jar --tool Reporter --generate-csv "Ag
 groovy verify_performance.groovy
 
 ```
+OR 
+
+```
+/pathToJmeter/bin/jmeter.sh -n -t ZanataPerfTest_T510_NoSSD.jmx -Juser={zanata user} -Jkey={zanata key} -Jhostname={test host ip} -Jport={test host port} -l report.csv -e -o {path of report folder}
+
+```
+* e: Report generated at the end of load test
+* o: location of folder where you wants to generate html report
 
 ### MemoryTest
 ```
