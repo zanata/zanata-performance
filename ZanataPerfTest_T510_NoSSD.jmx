@@ -31,22 +31,22 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="hostname" elementType="Argument">
               <stringProp name="Argument.name">hostname</stringProp>
-              <stringProp name="Argument.value">localhost</stringProp>
+              <stringProp name="Argument.value">${__P(hostname,)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="port" elementType="Argument">
               <stringProp name="Argument.name">port</stringProp>
-              <stringProp name="Argument.value">8180</stringProp>
+              <stringProp name="Argument.value">${__P(port,)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="user" elementType="Argument">
               <stringProp name="Argument.name">user</stringProp>
-              <stringProp name="Argument.value">admin</stringProp>
+              <stringProp name="Argument.value">${__P(user,)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="key" elementType="Argument">
               <stringProp name="Argument.name">key</stringProp>
-              <stringProp name="Argument.value">b6d7044e9ee3b2447c28fb7c50d86d98</stringProp>
+              <stringProp name="Argument.value">${__P(key,)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
