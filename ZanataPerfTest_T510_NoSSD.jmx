@@ -1137,11 +1137,11 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/vnd.zanata.project+xml</stringProp>
+                <stringProp name="Header.value">application/vnd.zanata.projects+xml</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/vnd.zanata.project+xml</stringProp>
+                <stringProp name="Header.value">application/vnd.zanata.projects+xml</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">X-Auth-User</stringProp>
